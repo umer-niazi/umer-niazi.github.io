@@ -8,7 +8,7 @@ export const projects = [
     stack: ['Python', 'SQLite', 'BERTopic', 'spaCy', 'Transformers', 'Streamlit'],
     outcome: ['350K+ headlines', '20 discovered topics', '420K+ entity mentions'],
     demoUrl: 'https://news-nlp-pipeline.streamlit.app/',
-    sourceUrl: 'https://github.com/umerkniazi/news-nlp-pipeline',
+    sourceUrl: 'https://github.com/umer-niazi/news-nlp-pipeline',
     featured: true,
   },
   {
@@ -20,7 +20,7 @@ export const projects = [
     stack: ['Python', 'PyTorch', 'ResNet18', 'Streamlit'],
     outcome: ['96.55% validation accuracy', '4-class classification', 'Open-set rejection'],
     demoUrl: 'https://himalayan-wildlife-classifier.streamlit.app/',
-    sourceUrl: 'https://github.com/umerkniazi/himalayan-wildlife-classifier',
+    sourceUrl: 'https://github.com/umer-niazi/himalayan-wildlife-classifier',
     featured: true,
   },
   {
@@ -32,7 +32,7 @@ export const projects = [
     stack: ['Python', 'windows-curses', 'pygame'],
     outcome: ['Keyboard-first workflow', 'Fast fuzzy search', 'Metadata caching'],
     demoUrl: null,
-    sourceUrl: 'https://github.com/umerkniazi/wmus',
+    sourceUrl: 'https://github.com/umer-niazi/wmus',
     featured: true,
   },
   {
@@ -44,7 +44,7 @@ export const projects = [
     stack: ['Python', 'scikit-learn', 'pandas', 'Streamlit'],
     outcome: ['62K+ intake records', '76% accuracy', 'Euthanasia recall focused'],
     demoUrl: 'https://shelter-outcome-predictor.streamlit.app/',
-    sourceUrl: 'https://github.com/umerkniazi/shelter-outcome-predictor',
+    sourceUrl: 'https://github.com/umer-niazi/shelter-outcome-predictor',
     featured: false,
   },
 ];
@@ -58,9 +58,9 @@ export const secondaryProjects = [
       'A complete game project focused on finishing and shipping a polished experience rather than leaving another prototype unfinished.',
     stack: ['Godot', 'GDScript'],
     features: ['Browser release', 'Desktop and mobile support', 'Complete playable project'],
-    demoUrl: 'https://umerkniazi.itch.io/waddle-away',
+    demoUrl: 'https://umer-niazi.itch.io/waddle-away',
     demoLabel: 'Play',
-    sourceUrl: 'https://github.com/umerkniazi/waddle-away',
+    sourceUrl: 'https://github.com/umer-niazi/waddle-away',
     featured: false,
   },
 ];

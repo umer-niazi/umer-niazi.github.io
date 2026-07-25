@@ -1,22 +1,22 @@
 export const site = {
-  name: 'Umer Khan Niazi',
+  name: 'Umer Niazi',
   role: 'AI Student',
   tagline:
     'I build software that starts with a real question, choosing the right tools for the problem instead of chasing trends.',
-  email: 'umerkniazi@proton.me',
-  github: 'https://github.com/umerkniazi',
-  githubHandle: '@umerkniazi',
-  linkedin: 'https://linkedin.com/in/umerkniazi',
+  email: 'umer.niazi@proton.me',
+  github: 'https://github.com/umer-niazi',
+  githubHandle: '@umer-niazi',
+  linkedin: 'https://linkedin.com/in/umer-niazi',
   available: true,
   statusText: 'Open to Software Engineering & AI internships',
   currentFocus: 'Machine learning, software engineering and developer tools',
   resumeUrl: '/resume.pdf',
   description:
-    'Portfolio of Umer Khan Niazi, an AI student at UET Lahore building software through curiosity, thoughtful engineering and a focus on solving real problems.',
+    'Portfolio of Umer Niazi, an AI student at UET Lahore building software through curiosity, thoughtful engineering and a focus on solving real problems.',
 
   socials: [
-    { label: 'GitHub', url: 'https://github.com/umerkniazi', icon: 'tabler:brand-github' },
-    { label: 'LinkedIn', url: 'https://linkedin.com/in/umerkniazi', icon: 'tabler:brand-linkedin' },
+    { label: 'GitHub', url: 'https://github.com/umer-niazi', icon: 'tabler:brand-github' },
+    { label: 'LinkedIn', url: 'https://linkedin.com/in/umer-niazi', icon: 'tabler:brand-linkedin' },
   ],
 
   bio: [

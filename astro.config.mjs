@@ -3,7 +3,7 @@ import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://umerkniazi.github.io',
+  site: 'https://umer-niazi.github.io',
   base: '/',
   output: 'static',
   integrations: [icon(), sitemap()],
