@@ -17,48 +17,87 @@ function isActive(href) {
 }
 ---
 
-<header class="relative z-40 border-b border-border bg-bg py-6">
-  <div class="flex items-center justify-between">
+<script is:inline>
+  function applyTheme() {
+    const theme = (() => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      return 'light';
+    })();
+    if (theme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+    window.localStorage.setItem('theme', theme);
+  }
+  applyTheme();
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>
+
+<header class="relative z-40 border-b border-border bg-bg py-6 transition-colors duration-300">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-5 sm:px-8">
     <a href="/" class="py-2 text-base font-semibold tracking-tight text-ink no-underline hover-text-accent">
       ~/umer
     </a>
 
-    <nav aria-label="Primary" class="hidden items-center gap-6 text-base sm:flex">
-      {
-        links.map((link) => (
-          <a
-            href={link.href}
-            aria-current={isActive(link.href) ? 'page' : undefined}
-            class:list={[
-              'px-2 py-2 underline-offset-4 transition-colors duration-150',
-              isActive(link.href) 
-                ? 'font-medium text-ink' 
-                : 'text-muted hover-text-accent hover-underline',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
+    <div class="flex items-center gap-2 sm:gap-6">
+      <nav aria-label="Primary" class="hidden items-center gap-6 text-base sm:flex">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+              class:list={[
+                'px-2 py-2 underline-offset-4 transition-colors duration-150',
+                isActive(link.href) 
+                  ? 'font-medium text-ink' 
+                  : 'text-muted hover-text-accent hover-underline',
+              ]}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
 
-    <button
-      type="button"
-      id="nav-toggle"
-      aria-expanded="false"
-      aria-controls="nav-mobile"
-      aria-label="Open menu"
-      class="-mr-1.5 flex h-12 w-12 items-center justify-center rounded-md text-muted hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
-    >
-      <Icon name="tabler:menu-2" class="h-6 w-6" data-icon="open" aria-hidden="true" />
-      <Icon name="tabler:x" class="hidden h-6 w-6" data-icon="close" aria-hidden="true" />
-    </button>
+      <button
+        type="button"
+        id="theme-toggle"
+        aria-label="Toggle theme"
+        class="flex h-10 w-10 items-center justify-center rounded-md text-muted transition-colors duration-150 hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <div class="relative flex h-5 w-5 items-center justify-center">
+          <Icon name="tabler:moon" class="theme-icon-moon icon-swap absolute h-5 w-5" aria-hidden="true" />
+          <Icon name="tabler:sun" class="theme-icon-sun icon-swap absolute h-5 w-5" aria-hidden="true" />
+        </div>
+      </button>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-mobile"
+        aria-label="Open menu"
+        class="-mr-1.5 flex h-12 w-12 items-center justify-center rounded-md text-muted hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
+      >
+        <div class="relative flex h-6 w-6 items-center justify-center">
+          <Icon name="tabler:menu-2" data-icon="open" class="icon-swap absolute h-6 w-6" aria-hidden="true" />
+          <Icon name="tabler:x" data-icon="close" class="icon-swap icon-hidden absolute h-6 w-6" aria-hidden="true" />
+        </div>
+      </button>
+    </div>
   </div>
 
   <nav
     id="nav-mobile"
     aria-label="Primary"
-    class="absolute left-0 top-full hidden w-full flex-col gap-2 border-b border-border bg-bg pb-4 pt-2 text-base shadow-lg sm:hidden"
+    inert
+    class="absolute left-0 top-full flex w-full flex-col gap-2 border-b border-border bg-bg pb-4 pt-2 text-base sm:hidden"
   >
     {
       links.map((link) => (
@@ -66,7 +105,7 @@ function isActive(href) {
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
           class:list={[
-            'block rounded px-4 py-3.5 underline-offset-4 transition-colors duration-150',
+            'block rounded px-5 py-3.5 underline-offset-4 transition-colors duration-150',
             isActive(link.href) 
               ? 'font-medium text-ink' 
               : 'text-muted hover-text-accent hover-underline',
@@ -80,6 +119,19 @@ function isActive(href) {
 </header>
 
 <script>
+  function initThemeToggle() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle || toggle.dataset.bound === 'true') return;
+    toggle.dataset.bound = 'true';
+
+    toggle.addEventListener('click', () => {
+      const element = document.documentElement;
+      element.classList.toggle('dark');
+      const isDark = element.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+
   function initNavToggle() {
     const toggle = document.getElementById('nav-toggle');
     const panel = document.getElementById('nav-mobile');
@@ -92,10 +144,11 @@ function isActive(href) {
     function setOpen(open) {
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      panel.classList.toggle('hidden', !open);
-      panel.classList.toggle('flex', open);
-      iconOpen?.classList.toggle('hidden', open);
-      iconClose?.classList.toggle('hidden', !open);
+      panel.classList.toggle('nav-mobile-open', open);
+      panel.toggleAttribute('inert', !open);
+
+      iconOpen?.classList.toggle('icon-hidden', open);
+      iconClose?.classList.toggle('icon-hidden', !open);
     }
 
     toggle.addEventListener('click', () => {
@@ -140,6 +193,11 @@ function isActive(href) {
     });
   }
 
-  initNavToggle();
-  document.addEventListener('astro:page-load', initNavToggle);
+  function initScripts() {
+    initThemeToggle();
+    initNavToggle();
+  }
+
+  initScripts();
+  document.addEventListener('astro:page-load', initScripts);
 </script>
