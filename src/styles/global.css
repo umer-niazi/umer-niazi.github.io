@@ -158,11 +158,12 @@
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium;
+    @apply inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold shadow-sm;
     transition: color 150ms ease,
                 background-color 150ms ease,
                 border-color 150ms ease,
-                transform 100ms ease;
+                transform 100ms ease,
+                box-shadow 150ms ease;
   }
 
   .btn:active {
@@ -170,11 +171,11 @@
   }
 
   .btn-primary {
-    @apply btn border-border-strong text-ink;
+    @apply btn border-accent/40 bg-accent/10 text-accent dark:border-accent/40 dark:bg-accent/15 dark:text-accent;
   }
 
   .btn-secondary {
-    @apply btn border-border text-muted;
+    @apply btn border-border-strong bg-surface text-ink dark:border-border dark:bg-transparent dark:text-body;
   }
 
   .project-card {
@@ -200,11 +201,11 @@
 
   @media (hover: hover) {
     .btn-primary:hover {
-      @apply border-accent bg-accent text-bg;
+      @apply border-accent bg-accent text-bg dark:border-accent dark:bg-accent dark:text-bg;
     }
 
     .btn-secondary:hover {
-      @apply border-accent text-accent;
+      @apply border-accent text-accent bg-surface-hover;
     }
 
     .hover-text-accent:hover {
