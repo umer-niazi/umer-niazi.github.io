@@ -188,21 +188,23 @@
     transition: color 150ms ease;
   }
 
-  @media (any-hover: hover) {
+  .project-card:hover,
+  .project-card:active {
+    @apply border-border-strong bg-surface-hover;
+  }
+
+  .project-card:hover .project-card-heading,
+  .project-card:active .project-card-heading {
+    @apply text-ink;
+  }
+
+  @media (hover: hover) {
     .btn-primary:hover {
       @apply border-accent bg-accent text-bg;
     }
 
     .btn-secondary:hover {
       @apply border-accent text-accent;
-    }
-
-    .project-card:hover {
-      @apply border-border-strong bg-surface-hover;
-    }
-
-    .project-card:hover .project-card-heading {
-      @apply text-ink;
     }
 
     .hover-text-accent:hover {
