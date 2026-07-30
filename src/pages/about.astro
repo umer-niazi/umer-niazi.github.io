@@ -9,7 +9,7 @@ import { environment } from '../data/environment.js';
   <h1 class="text-3xl font-bold tracking-tight text-ink">About</h1>
 
   <div class="mt-6 flex max-w-[60ch] flex-col gap-4 text-sm leading-relaxed text-body">
-    {site.bio.map((paragraph) => <p>{paragraph}</p>)}
+    {site.bio.filter((_, index) => index !== 1).map((paragraph) => <p>{paragraph}</p>)}
   </div>
 
   <p class="mt-4 text-sm">

@@ -13,7 +13,7 @@
   --color-surface: 255 255 255;
   --color-surface-hover: 243 244 246;
   --color-ink: 31 35 40;
-  --color-body: 89 99 110;
+  --color-body: 60 69 79;
   --color-muted: 101 109 118;
   --color-faint: 107 115 125;
   --color-border: rgba(31, 35, 40, 0.15);
@@ -158,12 +158,11 @@
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold shadow-sm;
+    @apply inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold;
     transition: color 150ms ease,
                 background-color 150ms ease,
                 border-color 150ms ease,
-                transform 100ms ease,
-                box-shadow 150ms ease;
+                transform 100ms ease;
   }
 
   .btn:active {
@@ -171,11 +170,11 @@
   }
 
   .btn-primary {
-    @apply btn border-accent/40 bg-accent/10 text-accent dark:border-accent/40 dark:bg-accent/15 dark:text-accent;
+    @apply btn border-accent bg-transparent text-accent;
   }
 
   .btn-secondary {
-    @apply btn border-border-strong bg-surface text-ink dark:border-border dark:bg-transparent dark:text-body;
+    @apply btn border-border-strong bg-transparent text-ink;
   }
 
   .project-card {
@@ -201,11 +200,11 @@
 
   @media (hover: hover) {
     .btn-primary:hover {
-      @apply border-accent bg-accent text-bg dark:border-accent dark:bg-accent dark:text-bg;
+      @apply border-accent bg-accent text-white;
     }
 
     .btn-secondary:hover {
-      @apply border-accent text-accent bg-surface-hover;
+      @apply bg-surface-hover text-ink;
     }
 
     .hover-text-accent:hover {

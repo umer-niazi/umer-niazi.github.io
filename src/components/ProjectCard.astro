@@ -37,6 +37,16 @@ const Heading = headingLevel;
     <article class="flex flex-col">
       <Heading class="text-base font-semibold tracking-tight text-ink">{name}</Heading>
       <p class="mt-2 text-sm leading-relaxed text-body">{summary || description}</p>
+
+      {outcome && outcome.length > 0 && (
+        <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+          {outcome.map((stat, i) => (
+            <span class="font-medium text-body">
+              {stat}{i < outcome.length - 1 ? <span class="font-normal text-faint"> · </span> : null}
+            </span>
+          ))}
+        </div>
+      )}
     </article>
   ) : (
     <article class="project-card">
@@ -49,10 +59,10 @@ const Heading = headingLevel;
       )}
 
       {outcome && outcome.length > 0 && (
-        <p class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-accent">
+        <p class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
           {outcome.map((stat, i) => (
-            <span>
-              {stat}{i < outcome.length - 1 ? <span class="text-border-strong"> · </span> : null}
+            <span class="font-medium text-body">
+              {stat}{i < outcome.length - 1 ? <span class="font-normal text-faint"> · </span> : null}
             </span>
           ))}
         </p>

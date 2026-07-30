@@ -34,19 +34,19 @@ const featured = projects.filter((p) => p.featured);
     </dl>
 
     <div class="mt-8 flex flex-wrap gap-3">
-      <a href="/resume" class="btn-primary">
+      <a href="/projects" class="btn-primary group">
+        View projects
+        <Icon 
+          name="tabler:arrow-right" 
+          class="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" 
+          aria-hidden="true" 
+        />
+      </a>
+      <a href="/resume" class="btn-secondary">
         <Icon name="tabler:file-text" class="h-4 w-4" aria-hidden="true" />
         Resume
       </a>
-      <a href={site.github} target="_blank" rel="noreferrer" class="btn-secondary">
-        <Icon name="tabler:brand-github" class="h-4 w-4" aria-hidden="true" />
-        GitHub
-      </a>
     </div>
-
-    <p class="mt-6 text-sm">
-      <a href="/about" class="text-accent underline-offset-4 hover:underline">More about me and how I work →</a>
-    </p>
   </section>
 
   <section class="mt-16 sm:mt-20" aria-labelledby="projects-heading">
@@ -58,5 +58,15 @@ const featured = projects.filter((p) => p.featured);
     <div class="mt-10 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10">
       {featured.map((project) => <ProjectCard {...project} variant="minimal" />)}
     </div>
+  </section>
+
+  <section class="mt-16 max-w-prose sm:mt-20" aria-labelledby="about-heading">
+    <h2 id="about-heading" class="text-xl font-semibold tracking-tight text-ink">About</h2>
+    <p class="mt-4 text-base leading-relaxed text-body">
+      {site.bio[1]}
+    </p>
+    <p class="mt-4 text-sm">
+      <a href="/about" class="text-accent underline-offset-4 hover:underline">More about me and how I work →</a>
+    </p>
   </section>
 </Base>

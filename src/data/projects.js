@@ -33,7 +33,7 @@ export const projects = [
     outcome: ['Keyboard-first workflow', 'Fast fuzzy search', 'Metadata caching'],
     demoUrl: null,
     sourceUrl: 'https://github.com/umer-niazi/wmus',
-    featured: true,
+    featured: false,
   },
   {
     name: 'Shelter Outcome Predictor',
