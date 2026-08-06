@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site.js';
-import { writing } from '../data/writing.js';
+import { site } from '../data/site.ts';
+import { writing } from '../data/writing.ts';
 
 function formatDate(iso) {
   const d = new Date(iso + 'T00:00:00Z');

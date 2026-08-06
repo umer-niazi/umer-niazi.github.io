@@ -2,8 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { site } from '../data/site.js';
-import { projects } from '../data/projects.js';
+import { site } from '../data/site.ts';
+import { projects } from '../data/projects.ts';
 
 const featured = projects.filter((p) => p.featured);
 ---
