@@ -148,6 +148,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -161,7 +162,7 @@
 
 .icon-swap {
   transition: opacity 150ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
 
@@ -180,9 +181,9 @@ html.dark .theme-icon-moon {
   overflow: hidden;
   opacity: 0;
   transition: opacity 200ms ease-out,
-              transform 200ms ease-out,
-              max-height 250ms ease-in-out,
-              visibility 200ms;
+    transform 200ms ease-out,
+    max-height 250ms ease-in-out,
+    visibility 200ms;
 }
 
 #nav-mobile.nav-mobile-open {
@@ -203,6 +204,7 @@ html.dark .theme-icon-moon {
 }
 
 @keyframes blink {
+
   0%,
   49% {
     opacity: 1;
@@ -227,9 +229,9 @@ html.dark .theme-icon-moon {
   line-height: 1.65;
   font-weight: 600;
   transition: color 150ms ease,
-              background-color 150ms ease,
-              border-color 150ms ease,
-              transform 100ms ease;
+    background-color 150ms ease,
+    border-color 150ms ease,
+    transform 100ms ease;
 }
 
 .btn:active,
@@ -259,8 +261,6 @@ html.dark .theme-icon-moon {
   border-color: var(--color-border);
   background-color: var(--color-surface);
   padding: 1.5rem;
-  transition: background-color 200ms ease,
-              border-color 200ms ease;
 }
 
 @media (min-width: 640px) {
@@ -273,18 +273,6 @@ html.dark .theme-icon-moon {
   font-size: 1rem;
   line-height: 1.7;
   font-weight: 600;
-  color: var(--color-body);
-  transition: color 150ms ease;
-}
-
-.project-card:hover,
-.project-card:active {
-  border-color: var(--color-border-strong);
-  background-color: var(--color-surface-hover);
-}
-
-.project-card:hover .project-card-heading,
-.project-card:active .project-card-heading {
   color: var(--color-ink);
 }
 
@@ -293,6 +281,10 @@ html.dark .theme-icon-moon {
     border-color: var(--color-accent);
     background-color: var(--color-accent);
     color: #ffffff;
+  }
+
+  html.dark .btn-primary:hover {
+    color: var(--color-bg);
   }
 
   .btn-secondary:hover {
@@ -310,12 +302,12 @@ html.dark .theme-icon-moon {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .icon-swap,
   #nav-mobile,
   .btn,
   .btn-primary,
   .btn-secondary,
-  .project-card,
   .caret {
     animation: none !important;
     transition-duration: 0ms !important;

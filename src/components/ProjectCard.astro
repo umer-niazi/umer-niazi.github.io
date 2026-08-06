@@ -39,12 +39,39 @@ const Heading = headingLevel;
       <p class="mt-2 text-sm leading-relaxed text-body">{summary || description}</p>
 
       {outcome && outcome.length > 0 && (
-        <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
-          {outcome.map((stat, i) => (
-            <span class="font-medium text-body">
-              {stat}{i < outcome.length - 1 ? <span class="font-normal text-faint"> · </span> : null}
-            </span>
+        <ul class="mt-3 flex flex-wrap gap-1.5 text-xs" aria-label="Project outcomes">
+          {outcome.map((stat) => (
+            <li class="rounded-md border border-border bg-surface px-2.5 py-1 font-medium text-body">
+              {stat}
+            </li>
           ))}
+        </ul>
+      )}
+
+      {(demoUrl || sourceUrl) && (
+        <div class="mt-auto pt-4 flex gap-4 text-xs">
+          {demoUrl && (
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center gap-1 rounded-sm text-accent underline-offset-4 hover-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+            >
+              <Icon name="tabler:external-link" class="h-3.5 w-3.5" aria-hidden="true" />
+              {demoLabel}
+            </a>
+          )}
+          {sourceUrl && (
+            <a
+              href={sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center gap-1 rounded-sm text-muted underline-offset-4 hover-text-accent hover-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+            >
+              <Icon name="tabler:brand-github" class="h-3.5 w-3.5" aria-hidden="true" />
+              Source
+            </a>
+          )}
         </div>
       )}
     </article>
@@ -55,27 +82,33 @@ const Heading = headingLevel;
       <p class="mt-3 text-sm leading-relaxed text-body">{description}</p>
 
       {stack && stack.length > 0 && (
-        <p class="mt-4 text-xs text-faint">{stack.join(' · ')}</p>
+        <ul class="mt-4 flex flex-wrap gap-1.5 text-xs" aria-label="Technologies used">
+          {stack.map((tech) => (
+            <li class="rounded-md border border-border bg-surface px-2.5 py-1 text-faint">
+              {tech}
+            </li>
+          ))}
+        </ul>
       )}
 
       {outcome && outcome.length > 0 && (
-        <p class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs">
-          {outcome.map((stat, i) => (
-            <span class="font-medium text-body">
-              {stat}{i < outcome.length - 1 ? <span class="font-normal text-faint"> · </span> : null}
-            </span>
+        <ul class="mt-3 flex flex-wrap gap-1.5 text-xs" aria-label="Project outcomes">
+          {outcome.map((stat) => (
+            <li class="rounded-md border border-border bg-surface px-2.5 py-1 font-medium text-body">
+              {stat}
+            </li>
           ))}
-        </p>
+        </ul>
       )}
 
       {features && features.length > 0 && (
-        <p class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
-          {features.map((feature, i) => (
-            <span>
-              {feature}{i < features.length - 1 ? <span class="text-border-strong"> · </span> : null}
-            </span>
+        <ul class="mt-3 flex flex-wrap gap-1.5 text-xs" aria-label="Project features">
+          {features.map((feature) => (
+            <li class="rounded-md border border-border bg-surface px-2.5 py-1 text-muted">
+              {feature}
+            </li>
           ))}
-        </p>
+        </ul>
       )}
 
       <div class="mt-auto pt-8 flex gap-5 text-sm">

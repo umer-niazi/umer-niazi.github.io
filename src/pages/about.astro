@@ -9,7 +9,7 @@ import { environment } from '../data/environment.ts';
   <h1 class="text-3xl font-bold tracking-tight text-ink">About</h1>
 
   <div class="mt-6 flex max-w-[60ch] flex-col gap-4 text-sm leading-relaxed text-body">
-    {site.bio.filter((_, index) => index !== 1).map((paragraph) => <p>{paragraph}</p>)}
+    {site.bio.about.map((paragraph) => <p>{paragraph}</p>)}
   </div>
 
   <p class="mt-4 text-sm">
@@ -59,7 +59,7 @@ import { environment } from '../data/environment.ts';
         environment.map((group) => (
           <div>
             <dt class="text-xs font-semibold uppercase tracking-widest text-muted">{group.category}</dt>
-            <dd class="mt-1.5 text-sm text-body">{group.items.join(' · ')}</dd>
+            <dd class="mt-1.5 text-sm leading-relaxed text-body">{group.items.join(' · ')}</dd>
           </div>
         ))
       }
