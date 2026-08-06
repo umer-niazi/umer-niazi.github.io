@@ -1,6 +1,6 @@
 export const site = {
   name: 'Umer Niazi',
-  role: 'AI Student',
+  role: 'Software Engineer & AI Student',
   tagline:
     'I build software that starts with a real question, choosing the right tools for the problem instead of chasing trends.',
   email: 'umer.niazi@proton.me',
@@ -12,7 +12,7 @@ export const site = {
   currentFocus: 'Machine learning, software engineering and developer tools',
   resumeUrl: '/resume.pdf',
   description:
-    'Portfolio of Umer Niazi, an AI student at UET Lahore building software through curiosity, thoughtful engineering and a focus on solving real problems.',
+    'Portfolio of Umer Niazi, a software engineer and AI student at UET Lahore, building thoughtful software with a focus on solving real problems.',
 
   socials: [
     { label: 'GitHub', url: 'https://github.com/umer-niazi', icon: 'tabler:brand-github' },
