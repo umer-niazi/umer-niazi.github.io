@@ -23,13 +23,7 @@ const featured = projects.filter((p) => p.featured);
       <div class="grid grid-cols-[4.5rem_1fr] items-baseline gap-2">
         <dt class="text-[11px] font-medium uppercase tracking-wider text-muted">Status</dt>
         <dd class="text-ink font-medium leading-relaxed">
-          {
-            site.available ? (
-              <span>{site.statusText}<span class="caret" aria-hidden="true" /></span>
-            ) : (
-              <span class="text-muted">Not currently available</span>
-            )
-          }
+          {site.statusText}<span class="caret" aria-hidden="true" />
         </dd>
       </div>
     </dl>
@@ -38,28 +32,24 @@ const featured = projects.filter((p) => p.featured);
       <div class="flex flex-wrap gap-3">
         <Button href="/projects" variant="primary">
           View projects
-          <Icon 
-            name="tabler:arrow-right" 
-            class="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5" 
-            aria-hidden="true" 
-          />
+          <Icon name="tabler:arrow-right" class="h-4 w-4" aria-hidden="true" />
         </Button>
         <Button href={site.resumeUrl} variant="secondary" target="_blank" rel="noopener noreferrer">
           Resume
-          <Icon name="tabler:arrow-up-right" class="h-4 w-4" aria-hidden="true" />
+          <Icon name="tabler:arrow-up-right" class="h-4 w-4 opacity-70" aria-hidden="true" />
         </Button>
       </div>
 
-      <div class="flex items-center gap-1 sm:gap-2 text-muted" aria-label="Social links">
+      <div class="flex items-center gap-1 text-muted" aria-label="Social links">
         <a
           href={site.github}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub profile"
           title="GitHub"
-          class="rounded-none p-2 text-muted transition duration-150 ease-out hover:scale-110 hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
-          <Icon name="tabler:brand-github" class="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+          <Icon name="tabler:brand-github" class="h-5 w-5" aria-hidden="true" />
         </a>
         <a
           href={site.linkedin}
@@ -67,17 +57,17 @@ const featured = projects.filter((p) => p.featured);
           rel="noopener noreferrer"
           aria-label="LinkedIn profile"
           title="LinkedIn"
-          class="rounded-none p-2 text-muted transition duration-150 ease-out hover:scale-110 hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
-          <Icon name="tabler:brand-linkedin" class="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+          <Icon name="tabler:brand-linkedin" class="h-5 w-5" aria-hidden="true" />
         </a>
         <a
           href={`mailto:${site.email}`}
           aria-label="Email"
           title="Email"
-          class="rounded-none p-2 text-muted transition duration-150 ease-out hover:scale-110 hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
-          <Icon name="tabler:mail" class="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+          <Icon name="tabler:mail" class="h-5 w-5" aria-hidden="true" />
         </a>
       </div>
     </div>
@@ -86,7 +76,9 @@ const featured = projects.filter((p) => p.featured);
   <section class="mt-16 sm:mt-20" aria-labelledby="projects-heading">
     <div class="flex items-baseline justify-between">
       <h2 id="projects-heading" class="text-xl font-semibold tracking-tight text-ink">Featured Projects</h2>
-      <a href="/projects" class="text-sm text-muted hover:text-accent hover:underline">All projects →</a>
+      <a href="/projects" class="text-sm text-accent underline-offset-4 hover:underline">
+        All projects &rarr;
+      </a>
     </div>
 
     <div class="mt-10 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
@@ -102,9 +94,8 @@ const featured = projects.filter((p) => p.featured);
       {site.bio.summary}
     </p>
     <p class="mt-4 text-sm">
-      <a href="/about" class="group inline-flex items-center gap-1.5 text-accent underline-offset-4 hover:underline">
-        <span>More about me and how I work</span>
-        <span class="transition-transform duration-150 ease-out group-hover:translate-x-0.5" aria-hidden="true">→</span>
+      <a href="/about" class="text-sm text-accent underline-offset-4 hover:underline">
+        More about me and how I work &rarr;
       </a>
     </p>
   </section>

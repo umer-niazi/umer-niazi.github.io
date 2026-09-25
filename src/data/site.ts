@@ -22,7 +22,7 @@ export const site = {
   bio: {
     about: [
       "I started programming with Python through small scripts, like one to calculate my grades. Even before coding, I was the person troubleshooting routers, printers, and electronics. I enjoy taking things apart, understanding how they work, and rebuilding them.",
-      "Outside of programming, I care about wildlife and animal welfare—from cats and dogs to spiders and insects.",
+      "Outside of programming, I care about wildlife and animal welfare, from cats and dogs to spiders and insects.",
     ],
     summary:
       "I'm studying Artificial Intelligence at UET Lahore and see myself as a software engineer first. My projects usually begin with curiosity or a problem I want to solve, then I choose the tools that fit. I enjoy machine learning, terminal applications, open source, and building software that feels complete.",
@@ -35,11 +35,8 @@ export const site = {
   },
 
   interests: [
-    'CLI applications',
-    'Machine learning',
-    'Software engineering',
-    'Systems',
-    'Linux',
+    'Game development',
+    'Systems programming & CLI tools',
     'Open source software',
     'Electronics & hardware',
     'Wildlife conservation & animal welfare',

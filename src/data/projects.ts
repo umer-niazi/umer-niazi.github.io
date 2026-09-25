@@ -1,17 +1,5 @@
 export const projects = [
   {
-    name: 'Thermal Capital',
-    summary:
-      'A hackathon prototype for municipal heat-intervention planning, pairing geospatial processing and optimization with a FastAPI backend and React frontend.',
-    description:
-      'A hackathon prototype for municipal heat-intervention planning built with Python, FastAPI, React, and TypeScript, combining geospatial processing and constrained optimization to model urban cooling and allocate budgets.',
-    stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Geospatial Processing', 'Optimization'],
-    outcome: ['112 automated tests', 'Knapsack budget optimizer', 'Geospatial cooling models'],
-    demoUrl: null,
-    sourceUrl: 'https://github.com/umer-niazi/thermal-capital',
-    featured: true,
-  },
-  {
     name: 'News NLP Pipeline',
     summary:
       'An NLP pipeline that explores topics, sentiment, and named entities across 15 years of Pakistani news.',
@@ -33,7 +21,7 @@ export const projects = [
     outcome: ['96.55% validation accuracy', '4-class classification', 'Confidence-based rejection'],
     demoUrl: 'https://himalayan-wildlife-classifier.streamlit.app/',
     sourceUrl: 'https://github.com/umer-niazi/himalayan-wildlife-classifier',
-    featured: false,
+    featured: true,
   },
   {
     name: 'wmus',

@@ -336,6 +336,7 @@ html.dark .btn-primary {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .icon-swap,
   #nav-mobile,
   .btn,

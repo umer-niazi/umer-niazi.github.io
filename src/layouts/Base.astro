@@ -11,10 +11,10 @@ interface Props {
   image?: string;
 }
 
-const { title, description = site.description, image = '/favicon.svg' } = Astro.props;
-const pageTitle = title === site.name ? title : `${title} — ${site.name}`;
+const { title, description = site.description, image } = Astro.props;
+const pageTitle = title === site.name ? title : `${title} - ${site.name}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://umer-niazi.github.io');
-const socialImageURL = new URL(image, Astro.site || 'https://umer-niazi.github.io');
+const socialImageURL = image ? new URL(image, Astro.site || 'https://umer-niazi.github.io') : null;
 
 const schemaData = {
   '@context': 'https://schema.org',
@@ -55,7 +55,6 @@ const schemaData = {
 
     <ClientRouter />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL.href} />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
@@ -67,14 +66,14 @@ const schemaData = {
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:image" content={socialImageURL.href} />
+    {socialImageURL && <meta property="og:image" content={socialImageURL.href} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content={canonicalURL.href} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImageURL.href} />
+    {socialImageURL && <meta name="twitter:image" content={socialImageURL.href} />}
 
     <!-- Structured Data (JSON-LD) -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaData)} />

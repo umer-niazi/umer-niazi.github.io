@@ -1,7 +1,7 @@
 export const skills = [
   {
     category: 'Languages',
-    items: ['Python', 'TypeScript', 'JavaScript', 'C++', 'SQL', 'GDScript'],
+    items: ['Python', 'C++', 'SQL', 'GDScript'],
   },
   {
     category: 'AI & Machine Learning',
@@ -9,7 +9,7 @@ export const skills = [
   },
   {
     category: 'Software & Systems',
-    items: ['FastAPI', 'React', 'Streamlit', 'SQLite', 'Linux', 'Git', 'Bash'],
+    items: ['Streamlit', 'SQLite', 'Linux', 'Git', 'Bash'],
   },
   {
     category: 'Game Dev',
