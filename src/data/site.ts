@@ -114,7 +114,7 @@ export const site = {
   environment: [
     {
       category: 'Linux distribution',
-      items: ['Fedora Linux (current)', 'Previously Arch Linux', 'Started on Ubuntu'],
+      items: ['Ubuntu', 'Arch', 'Fedora (current)'],
     },
     {
       category: 'Desktop environment',

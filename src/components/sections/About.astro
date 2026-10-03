@@ -91,7 +91,18 @@ import { site } from '../../data/site.ts';
               {group.category}
             </dt>
             <dd class="font-mono text-sm leading-relaxed text-body transition-colors duration-150 group-hover:text-ink">
-              {group.items.join(' · ')}
+              {
+                group.category === 'Linux distribution' ? (
+                  group.items.map((item, idx) => (
+                    <>
+                      <span class:list={['whitespace-nowrap', item.includes('(current)') && 'text-ink']}>{item}</span>
+                      {idx < group.items.length - 1 && ' → '}
+                    </>
+                  ))
+                ) : (
+                  group.items.join(' · ')
+                )
+              }
             </dd>
           </div>
         ))
