@@ -39,7 +39,7 @@ import { site } from '../../data/site.ts';
     </div>
   </div>
 
-  <div class="mt-16 border-t border-border pt-8">
+  <div class="mt-14 sm:mt-16">
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-10">
       <div>
         <h3 id="skills-heading" class="text-xl font-semibold tracking-tight text-ink">{site.aboutSection.skillsTitle}</h3>
@@ -79,18 +79,18 @@ import { site } from '../../data/site.ts';
     </div>
   </div>
 
-  <div class="mt-16 border-t border-border pt-8" aria-labelledby="environment-heading">
+  <div class="mt-14 sm:mt-16" aria-labelledby="environment-heading">
     <h3 id="environment-heading" class="text-xl font-semibold tracking-tight text-ink">{site.aboutSection.setupTitle}</h3>
     <p class="mt-1 text-xs text-muted">{site.aboutSection.setupSubtitle}</p>
 
     <dl class="mt-6 grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-6">
       {
         site.environment.map((group) => (
-          <div class="group flex flex-col gap-1 border-t border-border/40 pt-3 transition-colors duration-150 hover:border-accent">
-            <dt class="font-mono text-[11px] font-medium uppercase tracking-wider text-faint transition-colors duration-150 group-hover:text-accent">
+          <div class="flex flex-col gap-1">
+            <dt class="font-mono text-[11px] font-medium uppercase tracking-wider text-faint">
               {group.category}
             </dt>
-            <dd class="font-mono text-sm leading-relaxed text-body transition-colors duration-150 group-hover:text-ink">
+            <dd class="font-mono text-sm leading-relaxed text-body">
               {
                 group.category === 'Linux distribution' ? (
                   group.items.map((item, idx) => (

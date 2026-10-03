@@ -41,7 +41,7 @@ const primaryUrl = demoUrl || sourceUrl;
 const categoryLabel = category || (featured ? 'FEATURED' : 'PROJECT');
 ---
 
-<article class="group relative flex flex-col border-t border-border pt-6 transition-colors duration-200 hover:border-accent">
+<article class="relative flex flex-col border-t border-border pt-6">
   <div class="flex items-center justify-between text-xs font-mono">
     <span class="text-[11px] font-medium tracking-wider uppercase text-muted">
       {formattedIndex ? `${formattedIndex} / ` : ''}{categoryLabel}
@@ -55,7 +55,7 @@ const categoryLabel = category || (featured ? 'FEATURED' : 'PROJECT');
           href={primaryUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-ink no-underline transition-colors duration-150 group-hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          class="group inline-flex items-center gap-1.5 text-ink no-underline transition-colors duration-150 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           <span>{name}</span>
           <Icon
@@ -65,7 +65,7 @@ const categoryLabel = category || (featured ? 'FEATURED' : 'PROJECT');
           />
         </a>
       ) : (
-        <span class="transition-colors duration-150 group-hover:text-accent">{name}</span>
+        <span>{name}</span>
       )}
     </Heading>
   </div>
@@ -75,7 +75,7 @@ const categoryLabel = category || (featured ? 'FEATURED' : 'PROJECT');
   </p>
 
   {(outcome?.length || stack?.length || features?.length) && (
-    <dl class="mt-6 flex flex-col gap-2 border-t border-border/40 pt-4 text-xs font-mono">
+    <dl class="mt-6 flex flex-col gap-2 text-xs font-mono">
       {outcome && outcome.length > 0 && (
         <div class="grid grid-cols-[4.5rem_1fr] sm:grid-cols-[5rem_1fr] items-baseline gap-2">
           <dt class="text-[11px] uppercase tracking-wider text-muted font-medium">Outcome</dt>
