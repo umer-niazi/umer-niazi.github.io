@@ -65,7 +65,6 @@ export const site = {
       "I'm studying Artificial Intelligence at UET Lahore and see myself as a software engineer first. My projects usually begin with curiosity or a problem I want to solve, then I choose the tools that fit. I enjoy machine learning, terminal applications, open source, and building software that feels complete.",
     about: [
       "I started programming with Python through small scripts, like one to calculate my grades. Even before coding, I was the person troubleshooting routers, printers, and electronics. I enjoy taking things apart, understanding how they work, and rebuilding them.",
-      "Outside of programming, I care about wildlife and animal welfare, from cats and dogs to spiders and insects.",
     ],
   },
 
@@ -77,7 +76,7 @@ export const site = {
 
   aboutSection: {
     title: 'About',
-    emailCta: 'Email me \u2192',
+    emailCta: 'Get in touch \u2193',
     educationTitle: 'Education',
     skillsTitle: 'Skills',
     interestsTitle: 'Interests',

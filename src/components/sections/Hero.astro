@@ -23,16 +23,10 @@ import { site } from '../../data/site.ts';
   </dl>
 
   <div class="mt-6 flex flex-wrap items-center gap-3.5 sm:gap-4">
-    <div class="flex flex-wrap gap-3">
-      <Button href="#projects" variant="primary">
-        {site.hero.projectsCta}
-        <Icon name="tabler:arrow-down" class="h-4 w-4" aria-hidden="true" />
-      </Button>
-      <Button href={site.resumeUrl} variant="secondary" target="_blank" rel="noopener noreferrer">
-        {site.hero.resumeCta}
-        <Icon name="tabler:arrow-up-right" class="h-4 w-4 opacity-70" aria-hidden="true" />
-      </Button>
-    </div>
+    <Button href={site.resumeUrl} variant="primary" target="_blank" rel="noopener noreferrer">
+      {site.hero.resumeCta}
+      <Icon name="tabler:arrow-up-right" class="h-4 w-4" aria-hidden="true" />
+    </Button>
 
     <div class="flex items-center gap-1 text-muted" aria-label="Social links">
       <a

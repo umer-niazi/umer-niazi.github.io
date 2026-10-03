@@ -268,7 +268,8 @@ const links = [
           manualScrollTimer = window.setTimeout(() => {
             manualScrollTimer = undefined;
           }, 800);
-          targetEl.scrollIntoView({ behavior: 'smooth' });
+          const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          targetEl.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
           history.pushState(null, '', `#${targetId}`);
         }
       });
