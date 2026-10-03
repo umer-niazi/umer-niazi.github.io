@@ -7,7 +7,6 @@ export interface NavLink {
 export interface SocialLink {
   label: string;
   url: string;
-  icon: string;
 }
 
 export interface SkillCategory {
@@ -24,21 +23,19 @@ export const site = {
   name: 'Umer Niazi',
   role: 'Software Engineer & AI Student',
   tagline:
-    'I build software that starts with a real question, choosing the right tools for the problem instead of chasing trends.',
+    'I build machine learning projects and software tools, working with real datasets and practical constraints.',
   email: 'umer.niazi@proton.me',
   github: 'https://github.com/umer-niazi',
-  githubHandle: '@umer-niazi',
   linkedin: 'https://linkedin.com/in/umer-niazi',
-  available: true,
   statusText: 'Open to Software Engineering and ML/AI internships',
-  currentFocus: 'Machine learning, software engineering and developer tools',
+  currentFocus: 'Machine learning, software engineering, and terminal tools',
   resumeUrl: '/resume.pdf',
   description:
-    'Portfolio of Umer Niazi, a software engineer and AI student at UET Lahore, building thoughtful software with a focus on solving real problems.',
+    'Portfolio of Umer Niazi, a software engineer and AI student at UET Lahore. Machine learning projects, terminal tools, and software experiments.',
 
   socials: [
-    { label: 'GitHub', url: 'https://github.com/umer-niazi', icon: 'tabler:brand-github' },
-    { label: 'LinkedIn', url: 'https://linkedin.com/in/umer-niazi', icon: 'tabler:brand-linkedin' },
+    { label: 'GitHub', url: 'https://github.com/umer-niazi' },
+    { label: 'LinkedIn', url: 'https://linkedin.com/in/umer-niazi' },
   ] as SocialLink[],
 
   nav: [
@@ -50,21 +47,22 @@ export const site = {
   hero: {
     focusLabel: 'Focus',
     statusLabel: 'Status',
-    projectsCta: 'View projects',
     resumeCta: 'Resume',
   },
 
   projectsSection: {
     title: 'Projects',
-    description: "A selection of things I've built, mostly for myself, all open source.",
-    secondaryTitle: 'Also Built',
+    description:
+      "A selection of open-source projects I've built to explore ideas, solve practical problems, and work with real data.",
+    secondaryTitle: 'Experiments & Other Projects',
   },
 
   bio: {
     summary:
-      "I'm studying Artificial Intelligence at UET Lahore and see myself as a software engineer first. My projects usually begin with curiosity or a problem I want to solve, then I choose the tools that fit. I enjoy machine learning, terminal applications, open source, and building software that feels complete.",
+      "I am studying Artificial Intelligence at UET Lahore with a strong interest in software engineering and systems. Most of my projects start with a question or a practical problem, whether that means working with a large dataset, building a terminal tool, or training a model. I enjoy machine learning, Linux, open source, and building software that feels solid and complete.",
     about: [
-      "I started programming with Python through small scripts, like one to calculate my grades. Even before coding, I was the person troubleshooting routers, printers, and electronics. I enjoy taking things apart, understanding how they work, and rebuilding them.",
+      "I started programming in Python by writing small automation scripts. Even before writing code, I was always tinkering with hardware, electronics, and home networking. I have always enjoyed taking things apart to understand how they work under the surface and putting them back together.",
+      "Building small games in Unity early on sparked my curiosity about software and eventually led me to machine learning, particularly computer vision and NLP. Outside of computing, I care deeply about wildlife conservation and animal welfare, which directly inspired two of my projects: classifying Himalayan species and predicting shelter outcomes.",
     ],
   },
 
@@ -125,7 +123,7 @@ export const site = {
   contactSection: {
     title: "Let's connect",
     body:
-      "I'm currently seeking software engineering and ML/AI internship opportunities. Whether you have an open role, an engineering problem to discuss, or want to collaborate on open source, my inbox is open.",
+      "I am currently looking for software engineering and ML/AI internship opportunities. If you have an open role, an interesting project to discuss, or want to collaborate on open source, feel free to reach out.",
   },
 
   notFound: {
@@ -135,6 +133,3 @@ export const site = {
     cta: 'Go back home',
   },
 };
-
-export const skills = site.skills;
-export const environment = site.environment;
