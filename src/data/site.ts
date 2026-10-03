@@ -42,9 +42,9 @@ export const site = {
   ] as SocialLink[],
 
   nav: [
-    { label: 'home', href: '#home' },
     { label: 'projects', href: '#projects' },
     { label: 'about', href: '#about' },
+    { label: 'contact', href: '#contact' },
   ] as NavLink[],
 
   hero: {
