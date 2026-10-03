@@ -1,102 +1,13 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Base from '../layouts/Base.astro';
-import Button from '../components/Button.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import Hero from '../components/sections/Hero.astro';
+import Projects from '../components/sections/Projects.astro';
+import About from '../components/sections/About.astro';
 import { site } from '../data/site.ts';
-import { projects } from '../data/projects.ts';
-
-const featured = projects.filter((p) => p.featured);
 ---
 
 <Base title={site.name}>
-  <section class="max-w-prose">
-    <h1 class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">{site.name}</h1>
-    <p class="mt-1 text-lg text-muted">{site.role}</p>
-    <p class="mt-6 text-base leading-relaxed text-body">{site.tagline}</p>
-
-    <dl class="mt-8 flex flex-col gap-2 border-t border-border/50 pt-5 text-xs font-mono">
-      <div class="grid grid-cols-[4.5rem_1fr] items-baseline gap-2">
-        <dt class="text-[11px] font-medium uppercase tracking-wider text-muted">Focus</dt>
-        <dd class="text-body leading-relaxed">{site.currentFocus}</dd>
-      </div>
-      <div class="grid grid-cols-[4.5rem_1fr] items-baseline gap-2">
-        <dt class="text-[11px] font-medium uppercase tracking-wider text-muted">Status</dt>
-        <dd class="text-ink font-medium leading-relaxed">
-          {site.statusText}<span class="caret" aria-hidden="true" />
-        </dd>
-      </div>
-    </dl>
-
-    <div class="mt-6 flex flex-wrap items-center gap-3.5 sm:gap-4">
-      <div class="flex flex-wrap gap-3">
-        <Button href="/projects" variant="primary">
-          View projects
-          <Icon name="tabler:arrow-right" class="h-4 w-4" aria-hidden="true" />
-        </Button>
-        <Button href={site.resumeUrl} variant="secondary" target="_blank" rel="noopener noreferrer">
-          Resume
-          <Icon name="tabler:arrow-up-right" class="h-4 w-4 opacity-70" aria-hidden="true" />
-        </Button>
-      </div>
-
-      <div class="flex items-center gap-1 text-muted" aria-label="Social links">
-        <a
-          href={site.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-          title="GitHub"
-          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <Icon name="tabler:brand-github" class="h-5 w-5" aria-hidden="true" />
-        </a>
-        <a
-          href={site.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn profile"
-          title="LinkedIn"
-          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <Icon name="tabler:brand-linkedin" class="h-5 w-5" aria-hidden="true" />
-        </a>
-        <a
-          href={`mailto:${site.email}`}
-          aria-label="Email"
-          title="Email"
-          class="rounded-md p-2 text-muted transition-colors duration-150 hover:text-ink hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <Icon name="tabler:mail" class="h-5 w-5" aria-hidden="true" />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="mt-16 sm:mt-20" aria-labelledby="projects-heading">
-    <div class="flex items-baseline justify-between">
-      <h2 id="projects-heading" class="text-xl font-semibold tracking-tight text-ink">Featured Projects</h2>
-      <a href="/projects" class="text-sm text-accent underline-offset-4 hover:underline">
-        All projects &rarr;
-      </a>
-    </div>
-
-    <div class="mt-10 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
-      {featured.map((project, idx) => (
-        <ProjectCard {...project} index={idx + 1} variant="minimal" />
-      ))}
-    </div>
-  </section>
-
-  <section class="mt-16 border-t border-border pt-8 max-w-prose sm:mt-20" aria-labelledby="about-heading">
-    <h2 id="about-heading" class="text-xl font-semibold tracking-tight text-ink">About</h2>
-    <p class="mt-4 text-base leading-relaxed text-body">
-      {site.bio.summary}
-    </p>
-    <p class="mt-4 text-sm">
-      <a href="/about" class="text-sm text-accent underline-offset-4 hover:underline">
-        More about me and how I work &rarr;
-      </a>
-    </p>
-  </section>
+  <Hero />
+  <Projects />
+  <About />
 </Base>

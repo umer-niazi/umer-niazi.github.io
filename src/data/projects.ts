@@ -1,4 +1,17 @@
-export const projects = [
+export interface Project {
+  name: string;
+  summary: string;
+  description: string;
+  stack: string[];
+  outcome?: string[];
+  features?: string[];
+  demoUrl?: string | null;
+  demoLabel?: string;
+  sourceUrl?: string | null;
+  featured?: boolean;
+}
+
+export const projects: Project[] = [
   {
     name: 'News NLP Pipeline',
     summary:
@@ -49,7 +62,7 @@ export const projects = [
   },
 ];
 
-export const secondaryProjects = [
+export const secondaryProjects: Project[] = [
   {
     name: 'Waddle Away',
     summary:

@@ -2,40 +2,39 @@
 import { Icon } from 'astro-icon/components';
 import { site } from '../data/site.ts';
 
-const path = new URL(Astro.request.url).pathname.replace(/\/index\.html$/, '');
+const pathname = Astro.url.pathname.replace(/\/index\.html$/, '') || '/';
+const isHome = pathname === '/';
 
 const links = [
-  { href: '/', label: 'home' },
-  { href: '/projects', label: 'projects' },
-  { href: '/about', label: 'about' },
+  ...site.nav.map((link) => ({
+    href: isHome ? link.href : `/${link.href}`,
+    label: link.label,
+    external: false,
+  })),
   { href: site.resumeUrl, label: 'resume', external: true },
 ];
-
-function isActive(href: string): boolean {
-  if (href === '/') return path === '/' || path === '';
-  return path.startsWith(href);
-}
 ---
 
-<header class="relative z-40 border-b border-border bg-bg py-6">
+<header class="sticky top-0 z-40 border-b border-border bg-bg py-4 sm:py-5">
   <div class="flex w-full items-center justify-between">
-    <a href="/" class="group py-2 text-base font-semibold tracking-tight text-ink no-underline">
+    <a href={isHome ? '#home' : '/#home'} class="group py-2 text-base font-semibold tracking-tight text-ink no-underline">
       <span class="text-faint transition-colors duration-150 group-hover:text-accent font-normal">~/</span><span class="transition-colors duration-150 group-hover:text-accent">umer</span>
     </a>
 
     <div class="flex items-center gap-2 sm:gap-6">
-      <nav aria-label="Primary" class="hidden items-center gap-6 text-base sm:flex">
+      <nav aria-label="Primary" class="hidden items-center gap-6 text-base sm:flex" id="nav-desktop">
         {
           links.map((link) => (
             <a
               href={link.href}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
-              aria-current={!link.external && isActive(link.href) ? 'page' : undefined}
+              aria-current={!link.external && link.label === 'home' ? 'page' : undefined}
+              data-nav-link={!link.external ? link.label : undefined}
               class:list={[
                 'inline-flex items-center gap-1 px-2 py-2 underline-offset-4 transition-colors duration-150',
-                !link.external && isActive(link.href) 
-                  ? 'font-medium text-ink underline' 
+                !link.external && link.label === 'home'
+                  ? 'font-medium text-ink underline'
                   : 'text-muted hover-text-accent hover-underline',
               ]}
             >
@@ -88,11 +87,12 @@ function isActive(href: string): boolean {
           href={link.href}
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noopener noreferrer' : undefined}
-          aria-current={!link.external && isActive(link.href) ? 'page' : undefined}
+          aria-current={!link.external && link.label === 'home' ? 'page' : undefined}
+          data-nav-link={!link.external ? link.label : undefined}
           class:list={[
             'flex items-center justify-between rounded-none px-5 py-3.5 underline-offset-4 transition-colors duration-150',
-            !link.external && isActive(link.href) 
-              ? 'font-medium text-ink underline' 
+            !link.external && link.label === 'home'
+              ? 'font-medium text-ink underline'
               : 'text-muted hover-text-accent hover-underline',
           ]}
         >
@@ -107,12 +107,9 @@ function isActive(href: string): boolean {
 </header>
 
 <script>
-  let globalNavListenersBound = false;
-
   function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');
-    if (!toggle || toggle.dataset.bound === 'true') return;
-    toggle.dataset.bound = 'true';
+    if (!toggle) return;
 
     toggle.addEventListener('click', () => {
       const element = document.documentElement;
@@ -131,8 +128,7 @@ function isActive(href: string): boolean {
   function initNavToggle() {
     const toggle = document.getElementById('nav-toggle');
     const panel = document.getElementById('nav-mobile');
-    if (!toggle || !panel || toggle.dataset.bound === 'true') return;
-    toggle.dataset.bound = 'true';
+    if (!toggle || !panel) return;
 
     const iconOpen = toggle.querySelector('[data-icon="open"]');
     const iconClose = toggle.querySelector('[data-icon="close"]');
@@ -151,11 +147,10 @@ function isActive(href: string): boolean {
     toggle.addEventListener('click', () => {
       const isOpening = toggle.getAttribute('aria-expanded') !== 'true';
       setOpen(isOpening);
-      
+
       if (isOpening) {
         requestAnimationFrame(() => {
-          const firstLink = panel.querySelector('a');
-          firstLink?.focus();
+          panel.querySelector('a')?.focus();
         });
       } else {
         toggle.focus();
@@ -163,45 +158,132 @@ function isActive(href: string): boolean {
     });
 
     panel.addEventListener('click', (e) => {
-      if (e.target instanceof HTMLElement && e.target.tagName === 'A') setOpen(false);
+      if (e.target instanceof HTMLElement && e.target.closest('a')) setOpen(false);
     });
 
-    if (!globalNavListenersBound) {
-      globalNavListenersBound = true;
+    document.addEventListener('click', (e) => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (e.target instanceof Node && !toggle.contains(e.target) && !panel.contains(e.target)) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
 
-      document.addEventListener('click', (e) => {
-        const t = document.getElementById('nav-toggle');
-        const p = document.getElementById('nav-mobile');
-        if (!t || !p || t.getAttribute('aria-expanded') !== 'true') return;
-        if (!(e.target instanceof Node)) return;
-        if (!t.contains(e.target) && !p.contains(e.target)) {
-          setOpen(false);
-          t.focus();
-        }
-      });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
 
-      document.addEventListener('keydown', (e) => {
-        const t = document.getElementById('nav-toggle');
-        if (e.key === 'Escape' && t && t.getAttribute('aria-expanded') === 'true') {
-          setOpen(false);
-          t.focus();
-        }
-      });
+    window.matchMedia('(min-width: 640px)').addEventListener('change', (e) => {
+      if (e.matches && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+      }
+    });
+  }
 
-      const desktopQuery = window.matchMedia('(min-width: 640px)');
-      desktopQuery.addEventListener('change', (e) => {
-        const t = document.getElementById('nav-toggle');
-        if (e.matches && t && t.getAttribute('aria-expanded') === 'true') {
-          setOpen(false);
+  function initScrollSpy() {
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'));
+    if (!navLinks.length) return;
+
+    const sectionIds = ['home', 'projects', 'about'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (!sections.length) return;
+
+    function setActive(activeId: string) {
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute('data-nav-link') === activeId;
+        link.classList.toggle('font-medium', isActive);
+        link.classList.toggle('text-ink', isActive);
+        link.classList.toggle('underline', isActive);
+        link.classList.toggle('text-muted', !isActive);
+        link.classList.toggle('hover-text-accent', !isActive);
+        link.classList.toggle('hover-underline', !isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
         }
       });
     }
+
+    let ticking = false;
+    let manualScrollTimer: number | undefined;
+
+    function onScroll() {
+      if (manualScrollTimer !== undefined || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (manualScrollTimer !== undefined) return;
+
+        const scrollY = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+
+        if (scrollY < 120) {
+          setActive('home');
+          return;
+        }
+
+        if (scrollY + clientHeight >= scrollHeight - 60) {
+          const lastSection = sections[sections.length - 1];
+          if (lastSection) setActive(lastSection.id);
+          return;
+        }
+
+        const headerOffset = 140;
+        let currentSectionId = 'home';
+
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= headerOffset) {
+            currentSectionId = section.id;
+          } else {
+            break;
+          }
+        }
+
+        setActive(currentSectionId);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        const targetId = href.slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          setActive(targetId);
+          window.clearTimeout(manualScrollTimer);
+          manualScrollTimer = window.setTimeout(() => {
+            manualScrollTimer = undefined;
+          }, 800);
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, '', `#${targetId}`);
+        }
+      });
+    });
   }
 
-  function initScripts() {
+  function init() {
     initThemeToggle();
     initNavToggle();
+    initScrollSpy();
   }
 
-  document.addEventListener('astro:page-load', initScripts);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 </script>

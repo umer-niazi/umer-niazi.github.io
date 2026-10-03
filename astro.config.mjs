@@ -7,6 +7,10 @@ export default defineConfig({
   site: 'https://umer-niazi.github.io',
   base: '/',
   output: 'static',
+  redirects: {
+    '/projects': '/#projects',
+    '/about': '/#about',
+  },
   integrations: [icon(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

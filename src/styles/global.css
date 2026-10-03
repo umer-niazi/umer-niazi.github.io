@@ -104,6 +104,8 @@
     color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
     text-rendering: geometricPrecision;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   html.dark {
@@ -271,61 +273,7 @@ html.light .theme-icon-moon {
   }
 }
 
-.btn,
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0;
-  border-width: 1px;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  line-height: 1.65;
-  font-weight: 600;
-  transition: color 150ms ease,
-    background-color 150ms ease,
-    border-color 150ms ease,
-    transform 100ms ease;
-}
-
-.btn:active,
-.btn-primary:active,
-.btn-secondary:active {
-  transform: translateY(1px);
-}
-
-.btn-primary {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent);
-  color: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not(.light) .btn-primary {
-    color: var(--color-bg);
-  }
-}
-
-html.dark .btn-primary {
-  color: var(--color-bg);
-}
-
-.btn-secondary {
-  border-color: var(--color-accent);
-  background-color: transparent;
-  color: var(--color-accent);
-}
-
 @media (hover: hover) {
-  .btn-primary:hover {
-    opacity: 0.9;
-  }
-
-  .btn-secondary:hover {
-    background-color: rgb(var(--color-accent-rgb) / 0.1);
-  }
-
   .hover-text-accent:hover {
     color: var(--color-accent);
   }
@@ -336,12 +284,8 @@ html.dark .btn-primary {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .icon-swap,
   #nav-mobile,
-  .btn,
-  .btn-primary,
-  .btn-secondary,
   .caret {
     animation: none !important;
     transition-duration: 0ms !important;

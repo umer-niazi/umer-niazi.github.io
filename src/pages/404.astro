@@ -2,14 +2,15 @@
 import { Icon } from 'astro-icon/components';
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
+import { site } from '../data/site.ts';
 ---
 
-<Base title="Not found">
+<Base title={site.notFound.title}>
   <div class="max-w-prose">
-    <p class="text-sm text-faint">404</p>
-    <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">Page not found</h1>
+    <p class="text-sm text-faint">{site.notFound.code}</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-ink">{site.notFound.title}</h1>
     <p class="mt-4 text-sm leading-relaxed text-body">
-      There's nothing at this path.
+      {site.notFound.message}
     </p>
 
     <div class="mt-8">
@@ -19,7 +20,7 @@ import Button from '../components/Button.astro';
           class="h-4 w-4 transition-transform duration-150 ease-out group-hover:-translate-x-0.5" 
           aria-hidden="true" 
         />
-        Go back home
+        {site.notFound.cta}
       </Button>
     </div>
   </div>

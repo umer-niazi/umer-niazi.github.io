@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -38,29 +37,22 @@ const schemaData = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Theme initialization (prevents FOUC and preserves theme on view transitions) -->
+    <!-- Theme initialization avoids flash of unstyled content (FOUC) before CSS renders -->
     <script is:inline>
-      function applyTheme() {
-        try {
-          var stored = localStorage.getItem('theme');
-          var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          var cl = document.documentElement.classList;
-          cl.toggle('dark', isDark);
-          cl.toggle('light', !isDark);
-        } catch (e) {}
-      }
-      document.addEventListener('astro:after-swap', applyTheme);
-      applyTheme();
+      try {
+        var stored = localStorage.getItem('theme');
+        var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var cl = document.documentElement.classList;
+        cl.toggle('dark', isDark);
+        cl.toggle('light', !isDark);
+      } catch (e) {}
     </script>
-
-    <ClientRouter />
 
     <link rel="canonical" href={canonicalURL.href} />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:title" content={pageTitle} />
@@ -68,14 +60,12 @@ const schemaData = {
     <meta property="og:site_name" content={site.name} />
     {socialImageURL && <meta property="og:image" content={socialImageURL.href} />}
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content={canonicalURL.href} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     {socialImageURL && <meta name="twitter:image" content={socialImageURL.href} />}
 
-    <!-- Structured Data (JSON-LD) -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   </head>
   <body>
