@@ -54,7 +54,6 @@ export const site = {
     title: 'Projects',
     description:
       "A selection of open-source projects I've built to explore ideas, solve practical problems, and work with real data.",
-    secondaryTitle: 'Experiments & Other Projects',
   },
 
   bio: {

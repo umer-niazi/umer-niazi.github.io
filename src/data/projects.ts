@@ -3,7 +3,6 @@ export interface Project {
   description: string;
   stack: string[];
   outcome?: string[];
-  features?: string[];
   demoUrl?: string | null;
   demoLabel?: string;
   sourceUrl?: string | null;
@@ -51,15 +50,12 @@ export const projects: Project[] = [
     sourceUrl: 'https://github.com/umer-niazi/shelter-outcome-predictor',
     featured: false,
   },
-];
-
-export const secondaryProjects: Project[] = [
   {
     name: 'Waddle Away',
     description:
       'A 2D endless runner built with Godot and GDScript, released for browser and desktop play on Itch.io. Features progressive difficulty scaling, custom animations, and responsive controls.',
     stack: ['Godot', 'GDScript'],
-    features: ['Browser and desktop releases', 'Keyboard and touch controls', 'Progressive difficulty scaling'],
+    outcome: ['Browser and desktop releases', 'Keyboard and touch controls', 'Progressive difficulty scaling'],
     demoUrl: 'https://umer-niazi.itch.io/waddle-away',
     demoLabel: 'Play',
     sourceUrl: 'https://github.com/umer-niazi/waddle-away',
