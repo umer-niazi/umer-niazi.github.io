@@ -124,7 +124,9 @@ export const site = {
   ] as EnvironmentCategory[],
 
   contactSection: {
-    title: 'Contact',
+    title: "Let's connect",
+    body:
+      "I'm currently seeking software engineering and ML/AI internship opportunities. Whether you have an open role, an engineering problem to discuss, or want to collaborate on open source, my inbox is open.",
   },
 
   notFound: {

@@ -5,16 +5,7 @@ import { site } from '../data/site.ts';
 const year = new Date().getFullYear();
 ---
 
-<footer id="contact" class="scroll-mt-24 flex flex-col gap-12 border-t border-border py-8 text-xs text-faint">
-  <div class="flex flex-col gap-2">
-    <h2 class="font-mono text-xs font-semibold uppercase tracking-widest text-muted">{site.contactSection.title}</h2>
-    <a href={`mailto:${site.email}`} class="font-mono text-accent underline-offset-4 hover:underline">
-      {site.email}
-    </a>
-  </div>
-  
-  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-    <p>© {year} {site.name}. Built with Astro.</p>
-    <SocialLinks />
-  </div>
+<footer class="flex flex-col gap-4 border-t border-border py-8 text-xs text-faint sm:flex-row sm:items-center sm:justify-between">
+  <p>© {year} {site.name}. Built with Astro.</p>
+  <SocialLinks />
 </footer>

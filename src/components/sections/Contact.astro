@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../../data/site.ts';
+---
+
+<section
+  id="contact"
+  class="scroll-mt-24 mt-16 sm:mt-24 border-t border-border pt-12 pb-6 sm:pt-16 sm:pb-8"
+  aria-labelledby="contact-heading"
+>
+  <div class="flex flex-col gap-2">
+    <h2 id="contact-heading" class="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+      {site.contactSection.title}
+    </h2>
+  </div>
+
+  <p class="mt-4 max-w-[62ch] text-left text-sm leading-relaxed text-body sm:text-base">
+    {site.contactSection.body}
+  </p>
+
+  <div class="mt-6 flex">
+    <a
+      href={`mailto:${site.email}`}
+      class="group inline-flex min-h-[44px] items-center gap-1.5 font-mono text-sm font-medium text-accent underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:text-base"
+    >
+      <span>{site.email}</span>
+      <Icon
+        name="tabler:arrow-up-right"
+        class="h-4 w-4 transition-transform duration-150 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        aria-hidden="true"
+      />
+    </a>
+  </div>
+</section>
