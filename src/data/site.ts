@@ -27,7 +27,7 @@ export const site = {
   email: 'umer.niazi@proton.me',
   github: 'https://github.com/umer-niazi',
   linkedin: 'https://linkedin.com/in/umer-niazi',
-  statusText: 'Open to Software Engineering and ML/AI internships',
+  statusText: 'Open to AI/ML and SWE internships',
   currentFocus: 'Machine learning, software engineering, and terminal tools',
   resumeUrl: '/resume.pdf',
   description:
@@ -123,7 +123,7 @@ export const site = {
   contactSection: {
     title: "Let's connect",
     body:
-      "I am currently looking for software engineering and ML/AI internship opportunities. If you have an open role, an interesting project to discuss, or want to collaborate on open source, feel free to reach out.",
+      "I am currently looking for AI/ML and software engineering internship opportunities. If you have an open role, an interesting project to discuss, or want to collaborate on open source, feel free to reach out.",
   },
 
   notFound: {

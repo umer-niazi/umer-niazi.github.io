@@ -186,7 +186,7 @@ const links = [
       navLinks.forEach((link) => {
         const isActive = link.getAttribute('data-nav-link') === activeId;
         link.classList.toggle('font-medium', isActive);
-        link.classList.toggle('text-ink', isActive);
+        link.classList.toggle('text-accent', isActive);
         link.classList.toggle('underline', isActive);
         link.classList.toggle('text-muted', !isActive);
         link.classList.toggle('hover-text-accent', !isActive);
