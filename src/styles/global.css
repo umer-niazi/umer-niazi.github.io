@@ -258,7 +258,7 @@ html.light .theme-icon-moon {
   background: var(--color-accent);
   vertical-align: text-bottom;
   margin-left: 2px;
-  animation: blink 0.9s steps(1) 4 forwards;
+  animation: blink 0.9s steps(1) infinite;
 }
 
 @keyframes blink {
