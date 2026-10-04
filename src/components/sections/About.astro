@@ -48,9 +48,9 @@ import { site } from '../../data/site.ts';
             site.skills.map((group) => (
               <div class="flex flex-col gap-2.5">
                 <span class="font-mono text-[11px] font-medium uppercase tracking-wider text-muted">{group.category}</span>
-                <ul class="flex flex-wrap gap-2">
+                <ul class="flex flex-wrap gap-1.5">
                   {group.items.map((skill) => (
-                    <li class="cursor-default select-none rounded-none border border-border bg-transparent px-2.5 py-1 font-mono text-xs text-body transition-colors duration-150 hover:border-accent hover:bg-accent/[0.02] hover:text-ink">
+                    <li class="rounded-none border border-border bg-transparent px-2 py-0.5 font-mono text-xs text-body">
                       {skill}
                     </li>
                   ))}
@@ -63,15 +63,10 @@ import { site } from '../../data/site.ts';
 
       <div>
         <h3 id="interests-heading" class="text-xl font-semibold tracking-tight text-ink">{site.aboutSection.interestsTitle}</h3>
-        <ul class="mt-6 flex flex-col gap-3 font-mono text-xs text-body">
+        <ul class="mt-6 flex flex-col gap-2.5 text-sm leading-relaxed text-body sm:gap-3">
           {
             site.interests.map((interest) => (
-              <li class="group flex items-baseline gap-2.5">
-                <span class="text-[10px] text-accent transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true">
-                  →
-                </span>
-                <span class="text-body transition-colors duration-150 group-hover:text-ink">{interest}</span>
-              </li>
+              <li>{interest}</li>
             ))
           }
         </ul>
