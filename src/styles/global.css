@@ -2,7 +2,6 @@
 @import '@fontsource/jetbrains-mono/500.css';
 @import '@fontsource/jetbrains-mono/600.css';
 @import '@fontsource/jetbrains-mono/700.css';
-@import '@fontsource/jetbrains-mono/400-italic.css';
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -275,16 +274,6 @@ html.light .theme-icon-moon {
 
   100% {
     opacity: 1;
-  }
-}
-
-@media (hover: hover) {
-  .hover-text-accent:hover {
-    color: var(--color-accent);
-  }
-
-  .hover-underline:hover {
-    text-decoration-line: underline;
   }
 }
 
