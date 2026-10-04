@@ -4,30 +4,25 @@ import { Icon } from 'astro-icon/components';
 interface Props {
   name: string;
   description: string;
-  summary?: string;
   stack?: string[];
   outcome?: string[];
   demoUrl?: string | null;
   demoLabel?: string;
   sourceUrl?: string | null;
   headingLevel?: 'h2' | 'h3' | 'h4';
-  variant?: 'detailed' | 'minimal';
   index?: number | string;
   category?: string;
-  featured?: boolean;
 }
 
 const {
   name,
   description,
-  summary,
   stack,
   outcome,
   demoUrl,
   demoLabel = 'Demo',
   sourceUrl,
   headingLevel = 'h3',
-  variant = 'detailed',
   index,
   category,
 } = Astro.props;
@@ -51,7 +46,7 @@ const categoryLabel = category;
   </div>
 
   <p class="mt-3 max-w-[60ch] text-sm leading-relaxed text-body">
-    {variant === 'minimal' ? (summary || description) : description}
+    {description}
   </p>
 
   {(outcome?.length || stack?.length) && (
@@ -69,7 +64,7 @@ const categoryLabel = category;
         <div class="grid grid-cols-[4.5rem_1fr] sm:grid-cols-[5rem_1fr] items-baseline gap-2">
           <dt class="text-[11px] uppercase tracking-wider text-muted font-medium">Stack</dt>
           <dd class="text-body leading-relaxed">
-            {variant === 'minimal' ? stack.slice(0, 4).join(' · ') : stack.join(' · ')}
+            {stack.join(' · ')}
           </dd>
         </div>
       )}

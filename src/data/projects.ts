@@ -6,7 +6,6 @@ export interface Project {
   demoUrl?: string | null;
   demoLabel?: string;
   sourceUrl?: string | null;
-  featured?: boolean;
 }
 
 export const projects: Project[] = [
@@ -18,7 +17,6 @@ export const projects: Project[] = [
     outcome: ['350K+ headlines', '420K+ entity mentions', 'Unsupervised topic discovery'],
     demoUrl: 'https://news-nlp-pipeline.streamlit.app/',
     sourceUrl: 'https://github.com/umer-niazi/news-nlp-pipeline',
-    featured: true,
   },
   {
     name: 'Himalayan Wildlife Classifier',
@@ -28,7 +26,6 @@ export const projects: Project[] = [
     outcome: ['96.55% validation accuracy', 'Confidence-based rejection', 'Fine-tuned ResNet18'],
     demoUrl: 'https://himalayan-wildlife-classifier.streamlit.app/',
     sourceUrl: 'https://github.com/umer-niazi/himalayan-wildlife-classifier',
-    featured: true,
   },
   {
     name: 'wmus',
@@ -38,7 +35,6 @@ export const projects: Project[] = [
     outcome: ['Keyboard-driven workflow', 'Fuzzy track search', 'Local metadata caching'],
     demoUrl: null,
     sourceUrl: 'https://github.com/umer-niazi/wmus',
-    featured: false,
   },
   {
     name: 'Shelter Outcome Predictor',
@@ -48,7 +44,6 @@ export const projects: Project[] = [
     outcome: ['62K+ intake records', '63% euthanasia recall', '76% overall accuracy'],
     demoUrl: 'https://shelter-outcome-predictor.streamlit.app/',
     sourceUrl: 'https://github.com/umer-niazi/shelter-outcome-predictor',
-    featured: false,
   },
   {
     name: 'Waddle Away',
@@ -59,6 +54,5 @@ export const projects: Project[] = [
     demoUrl: 'https://umer-niazi.itch.io/waddle-away',
     demoLabel: 'Play',
     sourceUrl: 'https://github.com/umer-niazi/waddle-away',
-    featured: false,
   },
 ];
