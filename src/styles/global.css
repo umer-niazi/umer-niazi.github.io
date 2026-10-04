@@ -13,7 +13,6 @@
   --color-ink-rgb: 31 35 40;
   --color-body-rgb: 60 69 79;
   --color-muted-rgb: 101 109 118;
-  --color-faint-rgb: 89 97 106;
   --color-border-raw: rgba(31, 35, 40, 0.15);
   --color-border-strong-raw: rgba(31, 35, 40, 0.3);
   --color-accent-rgb: 9 105 218;
@@ -24,7 +23,6 @@
   --color-ink: rgb(var(--color-ink-rgb));
   --color-body: rgb(var(--color-body-rgb));
   --color-muted: rgb(var(--color-muted-rgb));
-  --color-faint: rgb(var(--color-faint-rgb));
   --color-border: var(--color-border-raw);
   --color-border-strong: var(--color-border-strong-raw);
   --color-accent: rgb(var(--color-accent-rgb));
@@ -38,7 +36,6 @@
     --color-ink-rgb: 244 248 251;
     --color-body-rgb: 198 205 213;
     --color-muted-rgb: 139 148 158;
-    --color-faint-rgb: 139 148 158;
     --color-border-raw: rgba(255, 255, 255, 0.08);
     --color-border-strong-raw: rgba(255, 255, 255, 0.18);
     --color-accent-rgb: 88 166 255;
@@ -52,7 +49,6 @@
   --color-ink-rgb: 244 248 251;
   --color-body-rgb: 198 205 213;
   --color-muted-rgb: 139 148 158;
-  --color-faint-rgb: 139 148 158;
   --color-border-raw: rgba(255, 255, 255, 0.08);
   --color-border-strong-raw: rgba(255, 255, 255, 0.18);
   --color-accent-rgb: 88 166 255;
@@ -65,7 +61,6 @@
   --color-ink: rgb(var(--color-ink-rgb));
   --color-body: rgb(var(--color-body-rgb));
   --color-muted: rgb(var(--color-muted-rgb));
-  --color-faint: rgb(var(--color-faint-rgb));
   --color-border: var(--color-border-raw);
   --color-border-strong: var(--color-border-strong-raw);
   --color-accent: rgb(var(--color-accent-rgb));
@@ -105,7 +100,6 @@
     color-scheme: light dark;
     text-rendering: geometricPrecision;
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
   }
 
   html.dark {
